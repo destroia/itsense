@@ -1,5 +1,6 @@
 ﻿using itsense.Data.Interface;
 using itsense.Models;
+using itsense.ModelsDto;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace itsense.Api.Controllers
         }
         // GET: api/<EntradasController>
         [HttpGet]
-        public async Task<IEnumerable<Entrada>> Get()
+        public async Task<IEnumerable<EntradaAndSalidaDto>> Get()
         {
             return await Repo.Get();
         }

@@ -52,6 +52,10 @@ namespace itsense.Api
 
             app.UseAuthorization();
 
+            app.UseCors(opt => opt.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader().AllowAnyMethod().AllowCredentials()
+          );
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

@@ -1,5 +1,6 @@
 ﻿using itsense.Data.Interface;
 using itsense.Models;
+using itsense.ModelsDto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,13 @@ namespace itsense.Data.Data
 
         public async Task<List<Producto>> Get()
         {
-            return await DB.Productos.ToListAsync();
+            return await DB.Productos
+                .ToListAsync();     
+        }
+
+        public async Task<Producto> GetById(int id)
+        {
+            return await DB.Productos.FindAsync(id);
         }
 
         public async Task<bool> Update(Producto pro)
@@ -37,8 +44,11 @@ namespace itsense.Data.Data
             if (result != null)
             {
                 pro.Name = pro.Name.Trim();
+
                 result.Name = pro.Name;
-                
+                result.CantOptimo = pro.CantOptimo;
+                result.CantDefectuoso = pro.CantDefectuoso;
+
                 DB.Productos.Update(result);
                 await DB.SaveChangesAsync();
 

@@ -1,0 +1,83 @@
+<p>producto works!</p>
+
+<div class="container">
+  <div align="left">
+    <button class="btn btn-primary" (click)="Back()">Atras</button>
+  </div>
+  <div *ngIf="!showCreateUpdate" class="row">
+    <div class="col-12">
+      <div align="right">
+        <button class="btn btn-primary" (click)="CreateUpdateProduct()">Crear Producto</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showCreateUpdate">
+    <form [formGroup]="formulario" style="margin:50px;">
+      <div class="row">
+        <div class="col-12 col-sm-3 ">
+          <div class="form-group ">
+            <label class="control-label">Nombre de Producto </label>
+            <input type="text" class="form-control" formControlName="nombre">
+            <p *ngIf="formulario.controls['nombre'].invalid && formulario.controls['nombre'].dirty" class="text-danger"> El nombre  es requerido  y requiere una longitud mínima de 4 caracteres y maxima de 200 caracteres </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-3 ">
+          <div class="form-group ">
+            <label class="control-label">Productos Optimos </label>
+            <input type="number" class="form-control" formControlName="cantidadOptimo">
+            <p *ngIf="formulario.controls['cantidadOptimo'].invalid && formulario.controls['cantidadOptimo'].dirty" class="text-danger"> Se requiere un numero  </p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-3 ">
+          <div class="form-group ">
+            <label class="control-label">Productos Defectuoso </label>
+            <input type="number" class="form-control" formControlName="cantidadDefectuoso">
+            <p *ngIf="formulario.controls['cantidadDefectuoso'].invalid && formulario.controls['cantidadDefectuoso'].dirty" class="text-danger"> Se requiere un numero  </p>
+          </div>
+        </div>
+
+        <div class="col-12  col-sm-3" align="center">
+          <button class="btn btn-primary btn-large btn-block" style="width:70%; position:relative; top:25px" [disabled]="formulario.invalid" (click)="Save()">Guardar</button>
+          <button class="btn btn-white btn-large btn-block" style="width:70%; position:relative; top:25px" (click)="Close()">Cerrar</button>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <br />
+  <br />
+
+  <br />
+  <br />
+  <div class="table-responsive ">
+    <table class="table  table-striped">
+      <thead>
+        <tr class="table-striped ">
+          <th scope="col">Codigo Producto </th>
+          <th scope="col">Nombre Producto</th>
+          <th scope="col">Producto Optimo</th>
+          <th scope="col">Producto Defectuoso</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let li of Productos" class="table-striped ">
+          <td> {{li.id }}</td>
+          <td> {{li.name }}</td>
+          <td> {{li.cantOptimo }}</td>
+          <td> {{li.cantDefectuoso }}</td>
+
+          <td>
+            <div class="btn-group" role="group">
+              <button (click)="Update(li)" class="btn btn-warning"> Actualizar </button>&nbsp;&nbsp;&nbsp;
+              <button (click)="Defectuoso(li)" class="btn btn-info"> Agregar Defectuoso </button>
+
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

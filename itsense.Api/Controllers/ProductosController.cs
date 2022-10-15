@@ -26,6 +26,11 @@ namespace itsense.Api.Controllers
             return await Repo.Get();
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Producto>> Get(int id)
+        {
+            return await Repo.GetById(id);
+        }
         // POST api/<ProductosController>
         [HttpPost]
         public async Task<ActionResult<bool>> Post(Producto pro)

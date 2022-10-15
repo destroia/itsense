@@ -10,10 +10,10 @@ namespace itsense.Data
 {
     public class ContextDBItsense : DbContext
     {
-        //public ContextDBItsense(DbContextOptions<ContextDBItsense> opt): base(opt)
-        //{
+        public ContextDBItsense(DbContextOptions<ContextDBItsense> opt): base(opt)
+        {
 
-        //}
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
@@ -27,6 +27,5 @@ namespace itsense.Data
         public DbSet<Entrada> Entradas { get; set; }
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Salida> Salidas { get; set; }
-        public DbSet<Stock> Stocks { get; set; }
     }
 }

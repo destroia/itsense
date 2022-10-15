@@ -21,7 +21,7 @@ namespace itsense.Data
             services.AddScoped<IEntrada, EntredaData>();
             services.AddScoped<IProducto, ProductoData>();
             services.AddScoped<ISalida, SalidaData>();
-            services.AddScoped<IStock, StockData>();
+           
 
             return services;
         }

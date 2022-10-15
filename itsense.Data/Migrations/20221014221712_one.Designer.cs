@@ -10,7 +10,7 @@ using itsense.Data;
 namespace itsense.Data.Migrations
 {
     [DbContext(typeof(ContextDBItsense))]
-    [Migration("20221014205619_one")]
+    [Migration("20221014221712_one")]
     partial class one
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,7 +34,7 @@ namespace itsense.Data.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PeoductoId")
+                    b.Property<int>("ProductoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -48,6 +48,12 @@ namespace itsense.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CantDefectuoso")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CantOptimo")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -72,33 +78,12 @@ namespace itsense.Data.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PeoductoId")
+                    b.Property<int>("ProductoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("Salidas");
-                });
-
-            modelBuilder.Entity("itsense.Models.Stock", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Defectuosos")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Optimos")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PeoductoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Stocks");
                 });
 #pragma warning restore 612, 618
         }

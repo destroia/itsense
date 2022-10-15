@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itsense.Data", "itsense.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itsense.Api", "itsense.Api\itsense.Api.csproj", "{49CCAA1E-9E75-4B92-8FDC-AA8F12B901D3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itsense.ModelsDto", "itsense.ModelsDto\itsense.ModelsDto.csproj", "{B72D5649-98C8-4DC3-B847-74C37D5C6BA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{49CCAA1E-9E75-4B92-8FDC-AA8F12B901D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49CCAA1E-9E75-4B92-8FDC-AA8F12B901D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49CCAA1E-9E75-4B92-8FDC-AA8F12B901D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72D5649-98C8-4DC3-B847-74C37D5C6BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72D5649-98C8-4DC3-B847-74C37D5C6BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72D5649-98C8-4DC3-B847-74C37D5C6BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72D5649-98C8-4DC3-B847-74C37D5C6BA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 ﻿using itsense.Models;
+using itsense.ModelsDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace itsense.Data.Interface
 {
     public interface ISalida
     {
-        Task<List<Salida>> Get();
+        Task<List<EntradaAndSalidaDto>> Get();
         Task<bool> Create(Salida salida);
         Task<bool> Update(Salida salida);
         Task<bool> Delete(int id);

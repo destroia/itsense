@@ -12,7 +12,7 @@ namespace itsense.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public int PeoductoId { get; set; }
+        public int ProductoId { get; set; }
         [Required]
         public int Count { get; set; }
         [Required]

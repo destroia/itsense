@@ -1,5 +1,6 @@
 ﻿using itsense.Data.Interface;
 using itsense.Models;
+using itsense.ModelsDto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -36,9 +37,18 @@ namespace itsense.Data.Data
             return false;
         }
 
-        public async  Task<List<Entrada>> Get()
+        public async  Task<List<EntradaAndSalidaDto>> Get()
         {
-            return await DB.Entradas.ToListAsync();
+            return await DB.Entradas.Join(DB.Productos,E => E.ProductoId,P => P.Id,(E,P) => new { E, P })
+                .Select(x => new EntradaAndSalidaDto()
+                {
+                    Id = x.E.Id,
+                    ProductoId = x.E.ProductoId,
+                    Count = x.E.Count,
+                    Date = x.E.Date,
+                    Name = x.P.Name
+                })
+                .ToListAsync();
         }
 
         public async Task<bool> Update(Entrada entrada)

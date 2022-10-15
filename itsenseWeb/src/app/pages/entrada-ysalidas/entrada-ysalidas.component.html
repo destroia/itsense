@@ -1,0 +1,119 @@
+<p>entrada-ysalidas works!</p>
+<div class="container">
+  <div *ngIf="!showCreate" class="row">
+    <div class="col-12 col-sm-3">
+      <div align="right">
+        <button class="btn btn-primary" (click)="CreateEntredaProduct()">Crear Nueva Entrada</button>
+      </div>
+    </div>
+    <div class="col-12 col-sm-3">
+      <div align="right">
+        <button class="btn btn-primary" (click)="CreateSalidaProduct()">Crear Nueva Salida</button>
+      </div>
+    </div>
+    <div class="col-12 col-sm-3">
+      <div align="right">
+        <button class="btn btn-primary" (click)="GoToProducts()">Ir a Productos </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showCreate">
+  <div align="center">
+    <h2 >{{titulo}}</h2>
+  </div>
+  <br />
+  <br />
+  <form [formGroup]="formulario" style="margin:50px;">
+    <div class="row">
+      <div class="col-12 col-sm-4 ">
+        <div class="form-group required">
+          <label class="control-label"> Producto  </label>
+          <select class="form-control" formControlName="productoId">
+            <option *ngFor="let li of Productos" [value]="li.id">{{li.name}}</option>
+          </select>
+          <p *ngIf="formulario.controls['productoId'].invalid && formulario.controls['productoId'].dirty" class="text-danger"> Debe seleccionar un producto </p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-3 ">
+        <div class="form-group required">
+          <label class="control-label">Cantidad </label>
+          <input type="text" class="form-control" formControlName="count">
+          <p *ngIf="formulario.controls['count'].invalid && formulario.controls['count'].dirty" class="text-danger"> La cantidad no es valida </p>
+        </div>
+      </div>
+
+
+      <div class="col-12  col-sm-3" align="center">
+        <button class="btn btn-primary btn-large btn-block" style="width:70%; position:relative; top:25px" [disabled]="formulario.invalid" (click)="Save()">Guardar</button>
+        <button class="btn btn-white btn-large btn-block" style="width:70%; position:relative; top:25px" (click)="Close()">Cerrar</button>
+
+      </div>
+    </div>
+    <div align="center">
+      <h2 class="text-danger">{{str}}</h2>
+    </div>
+
+  </form>
+</div>
+<br />
+<br />
+<div class="row">
+  <div class="col-12 col-sm-6">
+    <h2 align="center"> Entradas</h2>
+    <div class="table-responsive ">
+      <table class="table  table-striped">
+        <thead>
+          <tr class="table-striped ">
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">cantidad Optimo</th>
+            <th scope="col">Fecha</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let li of Entradas" class="table-striped ">
+            <td> {{li.name }}</td>
+            <td> {{li.count }}</td>
+            <td> {{li.date }}</td>
+
+            <td>
+              <div class="btn-group" role="group">
+
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-12 col-sm-6">
+    <h2 align="center"> Salidas</h2>
+    <div class="table-responsive ">
+      <table class="table  table-striped">
+        <thead>
+          <tr class="table-striped ">
+            <th scope="col">Nombre Producto</th>
+            <th scope="col">cantidad Optimo</th>
+            <th scope="col">Fecha</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let li of Salidas" class="table-striped ">
+            <td> {{li.name }}</td>
+            <td> {{li.count }}</td>
+            <td> {{li.date }}</td>
+
+            <td>
+              <div class="btn-group" role="group">
+
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
